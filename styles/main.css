@@ -1,0 +1,390 @@
+@import url("/styles/reset.css");
+/* --> General styles */
+:root {
+  --primary-background-color: rgb(255, 251, 0);
+  --box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.336);
+
+  --body-gap: 1.5rem;
+  --body-padding: 1rem;
+  --body-background-color: rgb(240, 240, 240);
+  --body-gradient: to bottom, rgb(255, 174, 53), rgb(223, 220, 52);
+  --body-size: 16px;
+
+  --header-title-font-size: 2.5rem;
+
+  --main-width: 22.8125rem;
+  --main-gap: 1rem;
+
+  --form-gap: 0.6rem;
+  --form-padding: 0.625rem;
+  --form-border-radius: 0.625rem;
+  --form-input-size: 2.5rem;
+  --form-input-padding: 0.3125rem;
+  --form-input-border-radius: 0.6125rem;
+  --form-input-text-font-size: 1.3rem;
+  --form-input-button-background-color: rgb(255, 179, 37);
+  --form-input-button-font-size: 1.2rem;
+  --form-input-button-translateY: 0.125rem;
+  --form-input-button-hover-background-color: rgb(255, 165, 0);
+  --form-input-button-hover-translateY: -0.1875rem;
+
+  --suggestions-container-gap: 0.8rem;
+  --suggestions-container-padding: 1rem;
+  --suggestions-container-border-radius: 0.625rem;
+  --suggestions-button-flex-basis: 150px;
+  --suggestions-button-padding: 0.5rem;
+  --suggestions-button-background-color: rgb(255, 179, 37);
+  --suggestions-button-border-radius: 0.625rem;
+  --suggestions-button-font-size: 1rem;
+
+  --loader-container-width: 18.75rem;
+  --loader-container-padding: 0.625rem;
+  --loader-container-border-radius: 0.625rem;
+  --loader-size: 30px;
+
+  --errorMessage-padding: 0.6rem;
+  --errorMessage-border-radius: 1rem;
+
+  --weather-data-width: 18.75rem;
+  --weather-data-padding: 1.25rem;
+  --weather-data-gap: 1rem;
+  --weather-data-border-radius: 1rem;
+  --city-container-margin: 0 0.2rem 0 0.4rem;
+  --city-container-i-font-size: 1.5rem;
+  --cityDisplay-font-size: 1.8rem;
+  --city-container-img-height: 1.4rem;
+
+  --temperature-container-gap: 0.4rem;
+  --tempDisplay-font-size: 2.8rem;
+  --tempSwitch-width: 70px;
+  --tempSwitch-height: 34px;
+  --tempSwitch-background-color: rgb(255, 165, 0);
+  --tempSwitch-border-radius: 20px;
+  --tempSwitch-font-size: 1.15rem;
+  --tempSwitch-before-size: 26px;
+  --tempSwitch-before-background-color: rgb(255, 251, 0);
+
+  --weatherDescription-font-size: 1.05rem;
+  --details-container-font-size: 1.1rem;
+  --umidity-information-spacing: 0.6rem;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: var(--body-gap);
+  padding: var(--body-padding);
+  background-color: var(--body-background-color);
+  background-image: linear-gradient(var(--body-gradient));
+  background-size: cover;
+  background-position: center bottom;
+  font-size: var(--body-size);
+}
+
+/* --> Header styles */
+.header {
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: var(--header-title-font-size);
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* --> Main styles */
+.main {
+  width: var(--main-width);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: var(--main-gap);
+  grid-template-rows: min-content auto;
+}
+
+/* -> Form styles */
+.form {
+  display: flex;
+  gap: var(--form-gap);
+  padding: var(--form-padding);
+  background-color: var(--primary-background-color);
+  border-radius: var(--form-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.form button,
+.form input {
+  height: var(--form-input-size);
+  padding: var(--form-input-padding);
+  border: none;
+  border-radius: var(--form-input-border-radius);
+}
+
+.form input[type="text"] {
+  font-size: var(--form-input-text-font-size);
+}
+
+.search {
+  width: var(--form-input-size);
+  background-color: var(--form-input-button-background-color);
+  border: none;
+  font-size: var(--form-input-button-font-size);
+  color: white;
+  cursor: pointer;
+  transform: translateY(var(--form-input-button-translateY));
+  transition: all ease 0.2s;
+}
+.search:hover {
+  background-color: var(--form-input-button-hover-background-color);
+  transform: translateY(var(--form-input-button-hover-translateY));
+}
+
+/* Suggestions container styles */
+.suggestions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--suggestions-container-gap);
+  flex-wrap: wrap;
+  padding: var(--suggestions-container-padding);
+  background-color: var(--primary-background-color);
+  border-radius: var(--suggestions-container-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.suggestions-button {
+  flex-basis: var(--suggestions-button-flex-basis);
+  padding: var(--suggestions-button-padding);
+  background-color: var(--form-input-button-background-color);
+  border: 1px solid black;
+  border-radius: var(--suggestions-button-border-radius);
+  font-size: var(--suggestions-button-font-size);
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+.suggestions-button:hover {
+  --form-input-button-background-color: rgb(255, 165, 0);
+  transform: scale(1.05);
+}
+
+
+/* -> Loader */
+.loader-container {
+  width: var(--loader-container-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: var(--loader-container-padding);
+  background-color: var(--primary-background-color);
+  border-radius: var(--loader-container-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.loader {
+  width: var(--loader-size);
+  height: var(--loader-size);
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top-color: white;
+  animation: load infinite 0.6s;
+}
+
+@keyframes load {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -> Error message styles */
+.errorMessage {
+  padding: var(--errorMessage-padding);
+  background-color: var(--primary-background-color);
+  border-radius: var(--errorMessage-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* -> App styles */
+.weather-data {
+  width: var(--weather-data-width);
+  margin: auto;
+  padding: var(--weather-data-padding);
+  display: grid;
+  gap: var(--weather-data-gap);
+  justify-content: center;
+  border-radius: var(--weather-data-border-radius);
+  box-shadow: var(--box-shadow);
+  color: white;
+  transition: 0.4s;
+}
+
+/* Clear sky */
+.clear-sky-day {
+  background-image: linear-gradient(to bottom, #1e90ff, #4682b4);
+}
+
+.clear-sky-night {
+  background-image: linear-gradient(to bottom, #000428, #004e92);
+}
+
+/* Few clouds */
+.few-clouds-day {
+  background-image: linear-gradient(to bottom, #5f9ea0, #4682b4);
+}
+
+.few-clouds-night {
+  background-image: linear-gradient(to bottom, #0f2027, #203a43);
+}
+
+/* Scattered clouds */
+.scattered-clouds {
+  background-image: linear-gradient(to bottom, #36454f, #2f4f4f);
+}
+
+/* Broken clouds */
+.broken-clouds {
+  background-image: linear-gradient(to bottom, #2c3e50, #4b4b4b);
+}
+
+/* Drizzle */
+.drizzle {
+  background-image: linear-gradient(to bottom, #4a5568, #6e7f80);
+}
+
+/* Rain */
+.rain-day {
+  background-image: linear-gradient(to bottom, #4b4b4b, #36454f);
+}
+
+.rain-night {
+  background-image: linear-gradient(to bottom, #191970, #000080);
+}
+
+/* Thunderstorm */
+.thunderstorm {
+  background-image: linear-gradient(to bottom, #2c3e50, #4b0082);
+}
+
+/* Snow */
+.snow {
+  background-image: linear-gradient(to bottom, #778899, #2f4f4f);
+}
+
+/* Mist */
+.mist {
+  background-image: linear-gradient(to bottom, #4b4b4b, #696969);
+}
+
+.city-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cityDisplay {
+  margin: var(--city-container-margin);
+  font-size: var(--city-container-font-size);
+}
+
+.city-container i {
+  font-size: var(--city-container-i-font-size);
+}
+
+.city-container img {
+  height: var(--city-container-img-height);
+}
+
+.temperature-container {
+  display: grid;
+  gap: var(--temperature-container-gap);
+}
+
+.tempDisplay {
+  font-size: var(--tempDisplay-font-size);
+}
+
+/* -> Switch Styles */
+.tempSwitch {
+  appearance: none;
+  width: var(--tempSwitch-width);
+  height: var(--tempSwitch-height);
+  background-color: var(--tempSwitch-background-color);
+  border-radius: var(--tempSwitch-border-radius);
+  font-size: var(--tempSwitch-font-size);
+  position: relative;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.tempSwitch:checked {
+  --tempSwitch-background-color: rgb(255, 251, 0);
+}
+.tempSwitch::before {
+  content: "";
+  width: var(--tempSwitch-before-size);
+  height: var(--tempSwitch-before-size);
+  background-color: var(--tempSwitch-before-background-color);
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s;
+}
+.tempSwitch:checked::before {
+  --tempSwitch-before-background-color: rgb(255, 165, 0);
+  left: 40px;
+}
+.tempSwitch::after {
+  content: "°C";
+  color: rgb(56, 56, 56);
+  font-weight: bolder;
+  position: absolute;
+  left: 6.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s;
+}
+.tempSwitch:checked::after {
+  content: "°F";
+  color: rgb(36, 36, 36);
+  left: 42.5px;
+}
+
+/* -> Weather Styles */
+.weather-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weatherDescription {
+  text-transform: capitalize;
+  font-size: var(--weatherDescription-font-size);
+  font-weight: 500;
+}
+
+.weatherImg {
+  display: block;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--details-container-font-size);
+}
+
+.umidity-information {
+  border-right: 2px solid white;
+  margin: var(--umidity-information-spacing);
+  padding: var(--umidity-information-spacing);
+}
+
+/* Interation */
+.hide {
+  display: none;
+}
