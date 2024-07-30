@@ -362,21 +362,23 @@ const getWeatherData = async (city) => {
 };
 
 const showWeatherData = (data) => {
-  const cityName = data.name;
   const apiCountryUrl = `https://flagsapi.com/${data.sys.country}/flat/64.png`;
-  const temperature = parseInt(data.main.temp);
-  const weatherDescription = data.weather[0].description;
   const weatherImg = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-  const humidity = data.main.humidity;
-  const wind = Math.round(data.wind.speed * 3.6);
+
+  const {
+    name: cityName,
+    main: { temp: temperature, humidity: humidity },
+    weather: [{ description: weatherDescription }],
+    wind: { speed: wind },
+  } = data;
 
   city_display.textContent = cityName;
   country_img.src = apiCountryUrl;
-  temp_display.textContent = temperature;
+  temp_display.textContent = temperature.toFixed(1);
   description_display.textContent = weatherDescription;
   weather_img.src = weatherImg;
   humidity_display.textContent = humidity;
-  wind_display.textContent = wind;
+  wind_display.textContent = wind * 3.6;
 
   weatherContainerBackground(data.weather[0].icon);
   weatherDataContainer.classList.remove("hide");
